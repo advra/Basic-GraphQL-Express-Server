@@ -7,7 +7,10 @@ const collections = [
         description:
             'A collection of 10,000 PFPs which grant their holders access to the digital and IRL Moonbirds community. Community members can nest their birds to signal their commitment, in return for exclusive perks—which so far have included trait-based physical and digital drops, the Oddities, and time-based nesting rewards.Moonbird art is entirely in-chain, meaning the images are outputted directly from the smart contract, with no need for storage on IPFS or the like. There are also special gradient backgrounds available to Proof Collective pass holders, which will disappear when the bird is transfered. You can check what each bird looks like with and without this background (and see if they have any unclaimed rewards!) on our site',
         chain: 'Ethereum',
-        total: 10000
+        totalSupply: 10000,
+        totalVolume: 177477
+        
+
     },
     {
         id: '2',
@@ -17,7 +20,8 @@ const collections = [
         description:
             'A cat of a 3,222 personalities, her can-do attitude will help kids & parents discover a whole new world. A part of a much larger ensemble of characters and storylines, Nippy, Rufus, and all their friends will become a franchise of Children’s books, toys, games, videos, and music. Sold out in Sept 2022 for .02-.03, a true innovating project in bridging web2 and web3 to bring real solvency to the holder base.Holders of our assets are listed contributors, brand ambassadors, and earn profit-sharing for their continued word-of-mouth, social, and network marketing.',
         chain: 'Ethereum',
-        total: 3222
+        totalSupply: 3222,
+        totalVolume: 319
     },
     {
         id: '3',
@@ -27,7 +31,8 @@ const collections = [
         description:
             '8,888 Space Riders unifying the galactic realms of Ethereum.',
         chain: 'Ethereum',
-        total: 8888
+        totalSupply: 8888,
+        totalVolume: 2701
     },
     {
         id: '4',
@@ -37,7 +42,8 @@ const collections = [
         description:
             'The Bored Ape Yacht Club is a collection of 10,000 unique Bored Ape NFTs— unique digital collectibles living on the Ethereum blockchain. Your Bored Ape doubles as your Yacht Club membership card, and grants access to members-only benefits, the first of which is access to THE BATHROOM, a collaborative graffiti board. Future areas and perks can be unlocked by the community through roadmap activation. Visit www.BoredApeYachtClub.com for more details.',
         chain: 'Ethereum',
-        total: 9998
+        totalSupply: 9998,
+        totalVolume: 710633
     },
     {
         id: '5',
@@ -47,7 +53,8 @@ const collections = [
         description:
             'Valhalla is a crypto native brand for gamers. Valhalla represents more than a collection of digital avatars. It represents decades of gaming culture: the clutch plays, the ELO grind, the OT wins. Visit joinvalhalla.com for more details.',
         chain: 'Ethereum',
-        total: 9000
+        totalSupply: 9000,
+        totalVolume: 14567
     },
 ];
 

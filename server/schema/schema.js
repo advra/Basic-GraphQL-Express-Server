@@ -17,7 +17,8 @@ const CollectionType = new GraphQLObjectType({
         image: { type: GraphQLString},
         description: { type: GraphQLString},
         chain: { type: GraphQLString},
-        total: { type: GraphQLInt},
+        totalSupply: { type: GraphQLInt},
+        totalVolume: { type: GraphQLInt},
         owner: {
             type: UserType,
             resolve(parent, args) {
