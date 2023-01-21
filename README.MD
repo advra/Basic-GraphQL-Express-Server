@@ -94,3 +94,16 @@ Output:
   }
 }
 ```
+
+# More Examples
+
+### Create new User and return all data
+```
+mutation{
+  addUser(username: "Gibby", wallet:"0x602faeE794E16604fbB17511b1ad179a728cE61b"){
+    id
+    username
+    wallet
+  }
+}
+```

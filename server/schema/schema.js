@@ -1,75 +1,113 @@
-const { collections, users } = require('../sampleData');
-const { 
-    GraphQLObjectType, 
-    GraphQLID, 
-    GraphQLString, 
-    GraphQLSchema, 
+//Mongoose models
+const Collection = require("../models/Collection");
+const User = require("../models/User");
+
+const {
+    GraphQLObjectType,
+    GraphQLID,
+    GraphQLString,
+    GraphQLSchema,
     GraphQLList,
-    GraphQLInt
-} = require('graphql');
+    GraphQLInt,
+    GraphQLNonNull,
+} = require("graphql");
 
 // collectionType
 const CollectionType = new GraphQLObjectType({
-    name: 'Collection',
+    name: "Collection",
     fields: () => ({
         id: { type: GraphQLID },
-        name: { type: GraphQLString},
-        image: { type: GraphQLString},
-        description: { type: GraphQLString},
-        chain: { type: GraphQLString},
-        totalSupply: { type: GraphQLInt},
-        totalVolume: { type: GraphQLInt},
+        name: { type: GraphQLString },
+        image: { type: GraphQLString },
+        description: { type: GraphQLString },
+        chain: { type: GraphQLString },
+        totalSupply: { type: GraphQLInt },
+        totalVolume: { type: GraphQLInt },
         owner: {
             type: UserType,
             resolve(parent, args) {
-                return users.find(user => user.id === parent.ownerId)
-            }
-        }
-    })
+                return User.findById(parent.ownerId);
+            },
+        },
+    }),
 });
 
 // UserType
 const UserType = new GraphQLObjectType({
-    name: 'User',
+    name: "User",
     fields: () => ({
         id: { type: GraphQLID },
-        username: { type: GraphQLString},
-        wallet: { type: GraphQLString}
-    })
+        username: { type: GraphQLString },
+        wallet: { type: GraphQLString },
+    }),
 });
 
 const RootQuery = new GraphQLObjectType({
-    name: 'RootQueryType',
+    name: "RootQueryType",
     fields: {
-        collections:  {
+        collections: {
             type: GraphQLList(CollectionType),
-            resolve( parent, args ) {
-                return collections;
-            }
+            resolve(parent, args) {
+                return Collection.find();
+            },
         },
         collection: {
             type: CollectionType,
-            args: { id: {type: GraphQLID } },
-            resolve( parent, args ) {
-                return collections.find(collection => collection.id === args.id);
-            }
+            args: { id: { type: GraphQLID } },
+            resolve(parent, args) {
+                return Collection.findById(args.id);
+            },
         },
-        users:  {
+        users: {
             type: GraphQLList(UserType),
-            resolve( parent, args ) {
-                return users;
-            }
+            resolve(parent, args) {
+                return User.find();
+            },
         },
         user: {
             type: UserType,
-            args: { id: {type: GraphQLID } },
-            resolve( parent, args ) {
-                return users.find(user => user.id === args.id);
-            }
-        }
-    }
+            args: { id: { type: GraphQLID } },
+            resolve(parent, args) {
+                return User.findById(args.id);
+            },
+        },
+    },
+});
+
+// Mutations
+const mutation = new GraphQLObjectType({
+    name: "Mutation",
+    fields: {
+        // Add a user
+        addUser: {
+            type: UserType,
+            args: {
+                username: { type: GraphQLNonNull(GraphQLString) },
+                wallet: { type: GraphQLNonNull(GraphQLString) },
+            },
+            resolve(parent, args) {
+                const user = new User({
+                    username: args.username,
+                    wallet: args.wallet,
+                });
+
+                return user.save();
+            },
+        },
+        // Delete a user
+        deleteUser: {
+            type: UserType,
+            args: {
+                id: { type: GraphQLNonNull(GraphQLID) },
+            },
+            resolve(parent, args) {
+                return User.findByIdAndRemove(args.id);
+            },
+        },
+    },
 });
 
 module.exports = new GraphQLSchema({
-    query: RootQuery
+    query: RootQuery,
+    mutation: mutation,
 });
