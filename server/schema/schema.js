@@ -63,7 +63,6 @@ const RootQuery = new GraphQLObjectType({
             type: UserType,
             args: { id: {type: GraphQLID } },
             resolve( parent, args ) {
-                // put your db function to get client
                 return users.find(user => user.id === args.id);
             }
         }

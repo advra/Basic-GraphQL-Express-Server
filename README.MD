@@ -8,7 +8,7 @@ This is a template which uses a graphQL express server that demonstrates the fol
 # How to run
 
 After cloning copy the .envexample:
-```
+```bash
 git clone git@github.com:advra/Basic-GraphQL-Express-Server.git
 cd Basic-GraphQL-Express-Server
 cp .env.example .env
@@ -22,21 +22,21 @@ Example Query:
 
 ```
 {
-  collections {
-    id,
-    name,
-    description,
-    owner {
-      username,
-      wallet
+    collections {
+        id,
+        name,
+        description,
+        owner {
+            username,
+            wallet
+        }
     }
-  }
 }
 ```
 
 Output:
 
-```
+```json
 {
   "data": {
     "collections": [
