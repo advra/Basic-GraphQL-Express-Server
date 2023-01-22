@@ -122,3 +122,18 @@ mutation{
 	}
 }
 ```
+
+# Update Collections and return all data
+```
+mutation{
+	updateCollection(id: "63cc8bbefb230ded0d6bfce2",name: "Moon Birds"){    
+		id
+    name
+    image
+    description
+    chain
+    totalSupply
+    totalVolume
+	}
+}
+```

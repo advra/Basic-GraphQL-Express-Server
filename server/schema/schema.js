@@ -136,7 +136,34 @@ const mutation = new GraphQLObjectType({
             resolve(parent, args) {
                 return Collection.findByIdAndRemove(args.id);
             }
-
+        },
+        updateCollection: {
+            type: CollectionType,
+            args: {
+                id: { type: GraphQLNonNull(GraphQLID)},
+                name: {type: GraphQLString},
+                image: {type: GraphQLString},
+                description: {type: GraphQLString},
+                chain: {type: GraphQLString},
+                totalSupply: {type: GraphQLInt},
+                totalVolume: {type: GraphQLInt}
+            },
+            resolve(parent, args) {
+                return Collection.findByIdAndUpdate(
+                    args.id, 
+                    {
+                        $set: {
+                            name: args.name,
+                            image: args.image,
+                            description: args.description,
+                            chain: args.chain,
+                            totalSupply: args.totalSupply,
+                            totalVolume: args.totalVolume,
+                        },
+                    },
+                    {new:true}
+                )
+            }
         }
     },
 });
