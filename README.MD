@@ -3,7 +3,7 @@
 This is a template which uses a graphQL express server that demonstrates the following:
 - env config file
 - sample queries  
-- loading data from json
+- read from a mongodb cloud (checkout feature/simple-json to see example with loading from json file instead)
 
 # How to run
 

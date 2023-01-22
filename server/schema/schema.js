@@ -105,6 +105,24 @@ const mutation = new GraphQLObjectType({
                 return User.findByIdAndRemove(args.id);
             },
         },
+        updateUser: {
+            type: UserType,
+            args: {
+                id: { type: GraphQLNonNull(GraphQLID)},
+                username: {type: GraphQLString},
+            },
+            resolve(parent, args) {
+                return User.findByIdAndUpdate(
+                    args.id, 
+                    {
+                        $set: {
+                            usename: args.username
+                        },
+                    },
+                    {new:true}
+                )
+            }
+        },
         addCollection: {
             type: CollectionType,
             args: {
