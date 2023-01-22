@@ -10,6 +10,7 @@ const {
     GraphQLList,
     GraphQLInt,
     GraphQLNonNull,
+    GraphQLEnumType,
 } = require("graphql");
 
 // collectionType
@@ -104,6 +105,39 @@ const mutation = new GraphQLObjectType({
                 return User.findByIdAndRemove(args.id);
             },
         },
+        addCollection: {
+            type: CollectionType,
+            args: {
+                name: { type: GraphQLNonNull(GraphQLString) },
+                image: { type: GraphQLNonNull(GraphQLString) },
+                description: { type: GraphQLNonNull(GraphQLString) },
+                chain: { type: GraphQLNonNull(GraphQLString) },
+                totalSupply: { type: GraphQLNonNull(GraphQLInt) },
+                totalVolume: { type: GraphQLNonNull(GraphQLInt) },
+            },
+            resolve(parent, args) {
+                const collection = new Collection({
+                    name: args.name,
+                    image: args.image,
+                    description: args.description,
+                    chain: args.chain,
+                    totalSupply: args.totalSupply,
+                    totalVolume: args.totalVolume,
+                });
+
+                return collection.save();
+            },
+        },
+        deleteCollection: {
+            type: CollectionType,
+            args: {
+                id: { type: GraphQLNonNull(GraphQLID) },
+            },
+            resolve(parent, args) {
+                return Collection.findByIdAndRemove(args.id);
+            }
+
+        }
     },
 });
 

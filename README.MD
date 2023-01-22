@@ -107,3 +107,18 @@ mutation{
   }
 }
 ```
+
+### Create new Collection and return all data
+```
+mutation{
+	addCollection(name: "Moonbirds", image: "https://i.seadn.io/gae/H-eyNE1MwL5ohL-tCfn_Xa1Sl9M9B4612tLYeUlQubzt4ewhr4huJIR5OLuyO3Z5PpJFSwdm7rq-TikAh7f5eUw338A2cy6HRH75?auto=format&w=1920", description:"A collection of 10,000 PFPs which grant their holders access to the digital and IRL Moonbirds community. Community members can nest their birds to signal their commitment, in return for exclusive perks—which so far have included trait-based physical and digital drops, the Oddities, and time-based nesting rewards.Moonbird art is entirely in-chain, meaning the images are outputted directly from the smart contract, with no need for storage on IPFS or the like. There are also special gradient backgrounds available to Proof Collective pass holders, which will disappear when the bird is transfered. You can check what each bird looks like with and without this background (and see if they have any unclaimed rewards!) on our site", chain:"ethereum", totalSupply:10000, totalVolume: 177477){    
+		id
+    name
+    image
+    description
+    chain
+    totalSupply
+    totalVolume
+	}
+}
+```
