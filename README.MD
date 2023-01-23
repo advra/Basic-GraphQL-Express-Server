@@ -1,9 +1,14 @@
 # Basic GraphQL Express Server
 
-This is a template which uses a graphQL express server that demonstrates the following:
+This is a template which uses a graphQL express server that demonstrates a MERN stack featuring following:
 - env config file
 - sample queries  
 - read from a mongodb cloud (checkout feature/simple-json to see example with loading from json file instead)
+- modal to add entries to collection
+
+# Preview 
+![Preview1 Image](preview.png)
+![Preview2 Image](preview2.png)
 
 # How to run
 
