@@ -1,7 +1,7 @@
-import { gql, useQuery} from '@apollo/client';
+import { useQuery} from '@apollo/client';
 import CollectionRow from './CollectionRow';
 import Spinner from './Spinner';
-import {GET_COLLECTIONS} from '../queries/collectionQueries'
+import { GET_COLLECTIONS } from '../queries/collectionQueries'
 
 function Collections() {
   const { loading, error, data } = useQuery(GET_COLLECTIONS);

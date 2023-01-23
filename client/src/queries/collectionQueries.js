@@ -1,4 +1,4 @@
-import {gql} from  '@apollo/client';
+import { gql } from '@apollo/client';
 
 const GET_COLLECTIONS = gql`
 query{
@@ -12,6 +12,6 @@ query{
     totalVolume
   }
 }
-`
+`;
 
 export { GET_COLLECTIONS };

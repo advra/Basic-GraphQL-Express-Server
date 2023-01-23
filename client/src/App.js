@@ -1,4 +1,5 @@
 import {ApolloProvider, ApolloClient, InMemoryCache} from '@apollo/client';
+import AddCollectionModal from './components/AddCollectionModal';
 import Collections from './components/Collections';
 import Header from "./components/Header";
 
@@ -28,9 +29,11 @@ function App() {
     <>
       <ApolloProvider client={client}>
         <Header/>
-        <div className="container">
-          {/* <h1>Hello World</h1> */}
-          <Collections/>
+        <div className='w-full mx-auto container px-4'>
+          <div className="container">
+            <AddCollectionModal/>
+            <Collections/>
+          </div>
         </div>
       </ApolloProvider>
     </>
