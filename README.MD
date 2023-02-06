@@ -8,6 +8,12 @@ This is a template which uses a graphQL express server that demonstrates a MERN 
 - cache fetch and updating (optimize cache data instead of re-requesting entire dataset)
 - read from a mongodb cloud (checkout feature/simple-json to see example with loading from json file instead)
 
+### Branches
+
+- feature/simple-json: graphql server using json as data
+- feature/mongodb: graphql server querying mongodb
+- feature/mern-app: graphql server querying mongodb with frontend app
+
 # Preview 
 ![Preview1 Image](preview.png)
 ![Preview2 Image](preview2.png)
