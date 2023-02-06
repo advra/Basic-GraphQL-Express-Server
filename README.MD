@@ -39,9 +39,9 @@ npm run start
 
 4. Visit the following links
 
-- [localhost:3000](localhost:3000) to view the app
-- [localhost:5000/graphsql](localhost:5000/graphsql) to view the graphql server api
-- 
+[localhost:3000](localhost:3000) to view the app
+[localhost:5000/graphql](localhost:5000/graphql) to view the graphql server api
+
 # Preview 
 ![Preview1 Image](preview.png)
 ![Preview2 Image](preview2.png)
